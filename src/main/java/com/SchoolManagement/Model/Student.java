@@ -6,9 +6,6 @@ public class Student extends Person {
 	
 	protected String section;
 	
-	protected String rollNo;
-	
-	
 	public String getGrade() {
 		return grade;
 	}

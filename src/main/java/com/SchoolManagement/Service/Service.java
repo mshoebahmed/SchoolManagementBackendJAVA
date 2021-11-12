@@ -1,30 +1,29 @@
 package com.SchoolManagement.Service;
 
-import com.SchoolManagement.Model.Person;
+import com.SchoolManagement.Constants.SQLconstants;
+import com.SchoolManagement.Dao.OracleConnection;
 import com.SchoolManagement.Model.Student;
 import com.SchoolManagement.Model.Teacher;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
 public class Service {
 
+	@Autowired
+	OracleConnection oracleConnection;
+	
+        public SQLconstants SQLCONSTANTS = new SQLconstants();
 	public String addStudent(Student request) { 
 		
 		if(request.getFirstName() != null || request.getMiddleName() != null ||request.getLastName() != null || request.getMotherName() != null ||
 				request.getMothertongue() != null || request.getDob() != null || request.getAddress() != null 
 				|| request.getSex() != null || request.getGrade() != null || request.getSection() != null
 				|| request.getRollNo() != null) {
-//			var student = new Student();
-//			student.setAddress(null);
-//			student.setDob(null);
-//			student.setFirstName(null);
-//			student.setLastName(null);
-//			student.setMiddleName(null);
-//			student.setMotherName(null);
-//			student.setMothertongue(null);	
-//			student.setSex(null);
-//			student.setClassStandard(null);
-//			student.setSection(null);
-//			student.setRollNo(null);
-			return "Sucessfully Added"+ request.getFirstName() + " "+ request.getMiddleName() + " "+ request.getLastName();
+			
+			var response =  oracleConnection.sqlCreate(SQLCONSTANTS.addStudent.concat(" (\""+request.getFirstName()+"\",\"").concat(request.getMiddleName()+"\",\"").concat(request.getLastName()+"\",\"").concat(request.getMotherName()+"\",\"").concat(request.getMothertongue()+"\",\"").concat(request.getDob()+"\",\"").concat(request.getAddress()+"\",\"").concat(request.getSex()+"\",\"").concat(request.getGrade()+"\",\"")  .concat(request.getSection()+"\",\"").concat(request.getRollNo()+"\")"));
+			return response;
 		}else {
 			String missingFields = "Required (*) Fields :-";
 			
@@ -82,18 +81,8 @@ public String addTeacher(Teacher request) {
 				request.getMothertongue() != null || request.getDob() != null || request.getAddress() != null 
 				|| request.getSex() != null || request.getGrade() != null || request.getSection() != null
 				|| request.getRollNo() != null) {
-//			var student = new Student();
-//			student.setAddress(null);
-//			student.setDob(null);
-//			student.setFirstName(null);
-//			student.setLastName(null);
-//			student.setMiddleName(null);
-//			student.setMotherName(null);
-//			student.setMothertongue(null);	
-//			student.setSex(null);
-//			student.setClassStandard(null);
-//			student.setSection(null);
-//			student.setRollNo(null);
+
+			
 			return "Sucessfully Added"+ request.getFirstName() + " "+ request.getMiddleName() + " "+ request.getLastName();
 		}else {
 			String missingFields = "Required (*) Fields :-";

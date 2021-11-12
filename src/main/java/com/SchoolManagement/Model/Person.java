@@ -1,6 +1,6 @@
 package com.SchoolManagement.Model;
 
-public class Person {
+public abstract class Person {
 
 	
 	protected String firstName;
@@ -11,8 +11,15 @@ public class Person {
 	protected String dob;
 	protected String motherName;
 	protected String mothertongue;
-	
-	
+	public String rollNo;
+    public String email;
+    @SuppressWarnings("unused")
+	private String password;
+    public String department;
+    
+    //email
+    //password
+  
 	public String getFirstName() {
 		return firstName;
 	}
@@ -61,5 +68,27 @@ public class Person {
 	public void setMothertongue(String mothertongue) {
 		this.mothertongue = mothertongue;
 	}
+	
+	public abstract String getRollNo();
+	
+	public abstract void setRollNo(String rollNo);
+	
+	
+    public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getDepartment() {
+		return department;
+	}
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	
 }

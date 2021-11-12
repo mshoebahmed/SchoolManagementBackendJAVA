@@ -8,7 +8,7 @@ public class Teacher extends Person {
 	
 	protected String section;
 	
-	protected String rollNo;
+	
 
 	public String getSubject() {
 		return subject;
