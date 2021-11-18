@@ -1,5 +1,8 @@
 package com.SchoolManagement.Model;
 
+import org.springframework.stereotype.Component;
+
+@Component 
 public class Teacher extends Person {
 
 	protected String subject;
