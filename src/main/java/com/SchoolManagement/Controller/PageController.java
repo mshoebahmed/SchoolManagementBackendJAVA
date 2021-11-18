@@ -7,23 +7,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PageController {
 
-    @Value("${runType}")
-    private String runType;
+    @Value("${isDev}")
+    private String isDev;
 
-        @RequestMapping("/")
-    public String profile(){
-        if(runType.equalsIgnoreCase("dev")){
+    @RequestMapping("/")
+    public String index() {
+        if (isDev.equalsIgnoreCase("true")) {
 
-
-           return "index.jsp";
-        }
-        else{
-            return "NotAuth.jsp";
+            return "index.jsp";
+        } else {
+            return "\\resource\\html\\NotAuth.jsp";
         }
     }
-   
 
-
-
+    @RequestMapping("/addstudent")
+    public String addstudent() {
+            return "\\resource\\html\\addStudent.jsp";
+    }
 
 }
